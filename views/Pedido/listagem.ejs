@@ -1,0 +1,38 @@
+<h1>Pedidos</h1>
+
+<table border="1">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Endereço</th>
+            <th>Pão</th>
+            <th>Queijo</th>
+            <th>Hamburger</th>
+            <th>Acompanhamento</th>
+            <th>Ações</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (pedidos && pedidos.length > 0) { %>
+            <% pedidos.forEach(pedido => { %>
+                <tr>
+                    <td><%= pedido.nome %></td>
+                    <td><%= pedido.endereco %></td>
+                    <td><%= pedido.pao %></td>
+                    <td><%= pedido.queijo %></td>
+                    <td><%= pedido.hamburguer %></td>
+                    <td><%= pedido.acompanhamento %></td>
+                    <td>
+                        <button type="submit" class="btnExcluir" data-codigo="<%= pedido.id %>" style="background-color: #f44336; color: white; border: none; padding: 5px 10px; border-radius: 4px; cursor: pointer;">Deletar</button>
+                    </td>
+                </tr>
+            <% }); %>
+        <% } else { %>
+            <tr>
+                <td colspan="7">Nenhum pedido encontrado.</td>
+            </tr>
+        <% } %>
+    </tbody>
+</table>
+
+<script src="/js/pedido/deletar.js"></script>
