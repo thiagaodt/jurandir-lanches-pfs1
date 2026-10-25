@@ -65,7 +65,7 @@ class Pedido {
         const db = new Database();
         const sql = `DELETE FROM tb_pedido WHERE ped_id = ?`
         let resultado = await db.ExecutaComandoNonQuery(sql, [id]);
-        return resultado.affectedRows > 0;
+        return resultado;
     }
 
 }

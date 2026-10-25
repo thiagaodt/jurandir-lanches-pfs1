@@ -1,8 +1,4 @@
 const PedidoModel = require('../models/pedidoModel');
-const PaoModel = require('../models/paoModel');
-const QueijoModel = require('../models/queijoModel');
-const HamburguerModel = require('../models/hamburguerModel');
-const AcompanhamentoModel = require('../models/acompanhamentoModel');
 
 class PedidoController {
 

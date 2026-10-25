@@ -11,19 +11,18 @@ class HomeController {
         let paos = await paoModel.listar();
         const queijoModel = new QueijoModel();
         let queijos = await queijoModel.listar();
-        console.log('queijos entrando cadastro: ', queijos);
         const hamburguerModel = new HamburguerModel();
         let hamburguers = await hamburguerModel.listar();
         const acompanhamentoModel = new AcompanhamentoModel();
         let acompanhamentos = await acompanhamentoModel.listar()
-        res.render('home/index', { layout: false, paos, queijos, hamburguers, acompanhamentos });
+        res.render('Home/index', { paos, queijos, hamburguers, acompanhamentos });
     }
 
     async cadastrar(req, res) {
         const { nome, endereco, pao_id, que_id, ham_id, aco_id } = req.body;
         console.log('pedido entrando cadastro: ', req.body)
         try {
-            const pedidoModel = new PedidoModel(nome, endereco, pao_id, que_id, ham_id, aco_id);
+            const pedidoModel = new PedidoModel(null, nome, endereco, pao_id, que_id, ham_id, aco_id);
             await pedidoModel.cadastrar();
             res.status(201).json({ message: 'Pedido cadastrado com sucesso!' });
         } catch (error) {
